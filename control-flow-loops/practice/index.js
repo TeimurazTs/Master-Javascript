@@ -1,4 +1,4 @@
-result = a + b < 4 ? true : false;
+let result = a + b < 4 ? true : false;
 
 // Tester
 

@@ -1,6 +1,6 @@
 let primeNumbersArray = [];
 
-for (let i = 2; i <= 300; i++) {
+for (let i = 2; i <= 10; i++) {
   let count = i;
   for (let j = 2; j <= i / 2; j++) {
     if (Math.floor(i / j) == i / j) {
@@ -14,4 +14,3 @@ for (let i = 2; i <= 300; i++) {
 
 console.log(primeNumbersArray);
 
-// Hi Dear Mentor. By changing i in the first for loo[], the code can generate an array with prime numbers up to i. I did it for 300 and my laptop died :D.

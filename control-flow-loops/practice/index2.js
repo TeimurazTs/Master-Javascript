@@ -9,7 +9,7 @@ message =
     ? "unknown"
     : "";
 
-//Tester
+// Tester
 // let message;
 
 // let loginArrays = ["Pitter", "Owner", ""];

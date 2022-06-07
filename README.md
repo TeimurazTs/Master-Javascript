@@ -1,3 +1,10 @@
-#### Task 14
+#### Task 3
 
-You have array `[1, 2, 5, 9, 4, 13, 4, 10]`. Using loop `for` and operator `if`, check if we have an element with value 4. If we have, print to console "Exist!" and stop loop execution. if we dont, dont print anything.
+```
+const value = 100;
+const nearLimit = 90;
+const limit = 100;
+
+```
+
+write a program which validates `value` variable. you should throw an error with corresponding message if value is greather than `nearLimit`. While handling errors, if `value` is greater than `nearLimit`, just console log a warning message, however, if value is greater than `limit`, then rethrow an error.
