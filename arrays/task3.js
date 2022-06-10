@@ -26,7 +26,7 @@ function rotate(nums, k, direction = "right") {
 
 // tests
 
-rotate([1, 2, 3], 1, "left");
-rotate([1, 2, 3], 1);
-rotate([1, 2, 3], 2);
-rotate([1, 2, 3, 4, 5, 6], 3, "left");
+// rotate([1, 2, 3], 1, "left");
+// rotate([1, 2, 3], 1);
+// rotate([1, 2, 3], 2);
+// rotate([1, 2, 3, 4, 5, 6], 3, "left");
