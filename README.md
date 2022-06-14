@@ -1,22 +1,12 @@
-#### Task 3
+# Task 2
 
-Create function `rotate`, which will rotate array based on given parameters.
+Update previous 'readingStatus(books)' function and add logic into it: if book is read by the author, display how many days ago he finished it.
 
-params:
-  array - required - target
-  number - required - count(how many times) to rotate array
-  string - optional - rotate direction: left or right. defualt is right
+*You may fing this resource helpful https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date*
 
-- function should contain checks:
-  - first parameter required and has to be only array
-  - second parameter required and has to be number
-  - third parameter optional and has to be only string
+- Use object getter method name it 'daysAgo' and return string: `{x} days ago`
 
-- creating new array is not allowed
-
-```javascript
-const arr = [1,2,3];
-rotate(arr, 1, 'left');  // result: [2,3,1]
-rotate(arr, 1);  // result: [3,1,2]
-rotate(arr, 2);  // result: [2,3,1]
-```
+Result should be:
+    'Bill have read The Road Ahead book {x} days ago'
+    'Steve have read Walter Isaacson book {x} days ago'
+    'Jhon haven't read The Hunger Games book yet'
