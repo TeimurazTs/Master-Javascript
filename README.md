@@ -1,12 +1,27 @@
-# Task 2
+#### Task 3
 
-Update previous 'readingStatus(books)' function and add logic into it: if book is read by the author, display how many days ago he finished it.
+Improve your implementation of function `mix`. If any callback throw error - catch it and go to the next callback. Function `mix` has to return always object with two properties `errors` and `value`. Note that `value` contains the result of calls to all callbacks, and ` errors` contains an array with information about all errors and the callback index where it was generated.
 
-*You may fing this resource helpful https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date*
+Example:
 
-- Use object getter method name it 'daysAgo' and return string: `{x} days ago`
-
-Result should be:
-    'Bill have read The Road Ahead book {x} days ago'
-    'Steve have read Walter Isaacson book {x} days ago'
-    'Jhon haven't read The Hunger Games book yet'
+```javascript
+mix(() => {
+    return 0;
+}, (prev) => {
+    return prev + 1;
+}, (prev) => {
+	throw new RangeError('Range is wrong');
+}, (prev) => {
+    return prev * 3;
+});
+// Function returns
+{
+    errors: [{
+            name: 'RangeError',
+            message: 'Range is wrong',
+            stack: '... stack of your error ...',
+            level: 2
+    }],
+    value: 3
+}
+```
