@@ -1,27 +1,47 @@
-#### Task 3
+#### Task 1
 
-Improve your implementation of function `mix`. If any callback throw error - catch it and go to the next callback. Function `mix` has to return always object with two properties `errors` and `value`. Note that `value` contains the result of calls to all callbacks, and ` errors` contains an array with information about all errors and the callback index where it was generated.
+Add the non-enumerable method `mergeDeepRight()` to `Object.prototype`. This method extends the source object by copying properties from the object passed in the argument. This method copies only the value of the properties, but does not copy the attributes (descriptors).
 
-Example:
+Only own properties are copied from the object in the argument (even those that are not available for enumeration).
+
+If there are properties that already exist in the source object, their values are replaced by the values from the object passed in the argument.
+
+If a property is object, it must also be copied along with nested data, nesting can be any.
 
 ```javascript
-mix(() => {
-    return 0;
-}, (prev) => {
-    return prev + 1;
-}, (prev) => {
-	throw new RangeError('Range is wrong');
-}, (prev) => {
-    return prev * 3;
+const data = {
+  name: "fred",
+  age: 10,
+  contact: {
+    email: "moo@example.com",
+    meta: {
+      verified: true,
+      tags: ["important"],
+    },
+  },
+};
+
+data.mergeDeepRight({
+  age: 40,
+  contact: {
+    email: "baa@example.com",
+    favorite: true,
+    meta: {
+      tags: ["vip"],
+    },
+  },
 });
-// Function returns
+
 {
-    errors: [{
-            name: 'RangeError',
-            message: 'Range is wrong',
-            stack: '... stack of your error ...',
-            level: 2
-    }],
-    value: 3
-}
+  name: "fred",
+  age: 40,
+  contact: {
+    email: "baa@example.com",
+    favorite: true,
+    meta: {
+      verified: true,
+      tags: ["vip", "important"],
+    },
+  },
+};
 ```
