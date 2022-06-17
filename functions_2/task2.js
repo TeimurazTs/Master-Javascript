@@ -1,10 +1,10 @@
 let data = {
-  errors: [{ name: "", message: "", stack: "", level: 2 }],
-  value: 3,
+  errors: [{ name: "", message: "", stack: "", level: null }],
+  value: null,
 };
 function mix(...cb) {
   try {
-    let passit;
+    let passit = data.value;
     for (let i = 0; i < cb.length; i++) {
       if (typeof cb[i] !== "function") {
         data.errors[0].level = i;
@@ -30,17 +30,17 @@ mix(
   () => {
     return 0;
   },
+  5,
   (prev) => {
     return prev + 1;
   },
-  5,
-  () => {
-    return 2;
+  (prev) => {
+    return prev + 3;
   },
   (prev) => {
     return prev + 5;
   },
   (prev) => {
-    return prev + 5
+    return prev + 5;
   }
 );
