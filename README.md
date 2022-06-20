@@ -1,47 +1,21 @@
 #### Task 1
 
-Add the non-enumerable method `mergeDeepRight()` to `Object.prototype`. This method extends the source object by copying properties from the object passed in the argument. This method copies only the value of the properties, but does not copy the attributes (descriptors).
+Implement the class **Validator**, for validating strings. This class has next methods:
 
-Only own properties are copied from the object in the argument (even those that are not available for enumeration).
+- method **isEmail** that gets string as parameter and validate is it correct email or not. If it's ok, return true, otherwise false
+- method **isDomain** for domain validating
+- method **isDate** for date validation
+- method **isPhone** for phone validation
 
-If there are properties that already exist in the source object, their values are replaced by the values from the object passed in the argument.
+- use Regexp for simpler validation
 
-If a property is object, it must also be copied along with nested data, nesting can be any.
+Example:
 
 ```javascript
-const data = {
-  name: "fred",
-  age: 10,
-  contact: {
-    email: "moo@example.com",
-    meta: {
-      verified: true,
-      tags: ["important"],
-    },
-  },
-};
+var validator = new Validator();
 
-data.mergeDeepRight({
-  age: 40,
-  contact: {
-    email: "baa@example.com",
-    favorite: true,
-    meta: {
-      tags: ["vip"],
-    },
-  },
-});
-
-{
-  name: "fred",
-  age: 40,
-  contact: {
-    email: "baa@example.com",
-    favorite: true,
-    meta: {
-      verified: true,
-      tags: ["vip", "important"],
-    },
-  },
-};
+console.log(validator.isEmail('jshtml@mail.ru'));
+console.log(validator.isDomain('jshtml.net'));
+console.log(validator.isDate('12.05.2020'));
+console.log(validator.isPhone('+375 (29) 817-68-92')); // it can be format of your country
 ```
