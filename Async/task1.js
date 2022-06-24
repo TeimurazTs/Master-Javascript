@@ -19,3 +19,5 @@ send(url)
   .catch((error) => {
     console.log(error);
   });
+
+  // HTML file is connected

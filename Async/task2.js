@@ -9,7 +9,7 @@ class Countries {
   send(region) {
     if (typeof region !== "string") throw new TypeError("must be a string");
     return new Promise((resolve, reject) => {
-      fetch(url).then((response) => {
+      fetch(url + `?region=${region}`).then((response) => {
         if (response.status === 200) {
           resolve(
             response.json().then((response) => console.log(response.data))
@@ -24,3 +24,5 @@ class Countries {
 
 const countries = new Countries(url);
 countries.send("africa");
+
+// HTML file is connected 
